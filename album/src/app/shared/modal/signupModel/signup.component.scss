@@ -1,0 +1,41 @@
+.text-size{
+    font-size:.7rem;
+}
+
+.modal-header .modal-title{
+    text-align: center;
+    width:100%;
+}
+
+.signup-style{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.agreeCheckbox{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex:0 0 30%;
+}
+
+#agreeLabel{
+    font-weight: bold;
+}
+
+#register{
+    border:1px solid blue;
+    background-color: blue;
+    color:white;
+    border-radius: 3px;
+}
+
+.modal-footer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.modal-footer .btn{
+    width:45%;
+}

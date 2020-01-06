@@ -1,0 +1,112 @@
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Sign Up</h4>
+    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+
+  <div class="modal-body">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div *ngIf="signupForm.invalid && isSubmitted == true">
+        <div *ngIf="fname.errors && isSubmitted == true">
+            <div *ngIf="fname.errors.required">First Name is required.</div>
+            <div *ngIf="fname.errors.maxLength">First max length is 10.</div>
+            <div *ngIf="fname.errors.pattern">First Name should only contains letters.</div>
+        </div>
+        <div *ngIf="lname.errors && isSubmitted == true">
+          <div *ngIf="lname.errors.required">Last Name is required.</div>
+          <div *ngIf="lname.errors.maxLength">Last max length is 10.</div>
+          <div *ngIf="lname.errors.pattern">Last Name should only contains letters.</div>
+        </div>
+        <div *ngIf="email.errors && isSubmitted == true">
+          <div *ngIf="email.errors.required">Email is required.</div>
+          <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        </div>
+        <div *ngIf="phone.errors && isSubmitted == true">
+          <div *ngIf="phone.errors.required">Phone No is required.</div>
+          <div *ngIf="phone.errors.pattern">Phone No must be numbers.</div>
+        </div>
+        <div *ngIf="password.errors && isSubmitted == true">
+          <div *ngIf="password.errors.required">password is required.</div>
+        </div>
+        <div *ngIf="confirmPassword.hasError('notSame')">password does not match.</div> 
+        
+      </div>   
+    <!--first name-->
+    <div class="signup-style">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" placeholder="First Name" 
+          [style.border]="fname.invalid && (fname.touched || fname.dirty) ? '1px solid red' : null"
+          formControlName="fname" maxLength="10" required>
+        </div>
+      </div>
+
+      <!--last name-->
+      <div class="form-group">
+          <div class="input-group">
+              <input id="lname" class="form-control" placeholder="Last Name"
+              [style.border]="lname.invalid && (lname.touched || lname.dirty) ? '1px solid red' : null"
+              formControlName="lname" maxLength="10"  required>
+          </div>
+      </div>
+    </div>
+
+   <!--phone -->
+   <div class="form-group">
+    <div class="input-group">
+      <input id="phone" type="text" class="form-control" 
+      [style.border]="phone.invalid && (phone.touched || phone.dirty) ? '1px solid red' : null"
+      placeholder="Mobile No."
+       formControlName="phone" required>
+    </div>
+  </div>
+
+  <!--email -->
+  <div class="form-group">
+      <div class="input-group">
+        <input id="email" type="email" class="form-control" 
+        [style.border]="email.invalid && (email.touched || email.dirty) ? '1px solid red' : null"
+        placeholder="Email Address" formControlName="email" required>
+      </div>
+  </div>
+
+
+    <!--password -->
+    <div class="signup-style">
+      <div class="form-group">
+          <div class="input-group">
+            <input id="password" type="password" class="form-control" 
+            placeholder="Password"  required
+            [style.border]="password.invalid && (password.touched || password.dirty) ? '1px solid red' : null"
+            formControlName="password">  
+          </div>
+        </div>
+
+        <!--confirm password -->
+        <div class="form-group">
+          <div class="input-group">
+            <input id="confirmPassword" type="password" class="form-control"
+            placeholder="Confirm Password" required
+            [style.border]="confirmPassword.invalid && (confirmPassword.touched || confirmPassword.dirty) ? '1px solid red' : null"
+            formControlName="confirmPassword">
+          </div>
+        </div>
+    </div>
+
+    <div class="form-group signup-style">
+      <div class="agreeCheckbox">
+        <input type="checkbox" id="agree">
+        <label for="agree" id="agreeLabel">I Agree</label>
+      </div>
+      <p>By clicking <span id="register">Register</span>, you agree to the 
+        <a href="#">Terms and Conditions</a> set out by this site,including our
+          Cookie Use
+        </p>
+    </div>
+    </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-primary" (click)="onSubmit()">Sign Up</button>
+  <button type="button" class="btn btn-success" (click)="onSignin()">Sign In</button>
+</div>
