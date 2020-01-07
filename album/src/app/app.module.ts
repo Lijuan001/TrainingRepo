@@ -12,6 +12,8 @@ import { OneOpenpanelComponent } from './shared/component/one-openpanel/one-open
 import { SignupComponent } from './shared/modal/signupModel/signup.component';
 import { LoginComponent } from './login/login.component';
 import { TestComponent } from './test/test.component';
+import { HttpClientModule } from '@angular/common/http';
+import { AlbumHeaderComponent } from './album-header/album-header.component';
 
 
 
@@ -24,14 +26,16 @@ import { TestComponent } from './test/test.component';
     OneOpenpanelComponent,
     SignupComponent,
     LoginComponent,
-    TestComponent
+    TestComponent,
+    AlbumHeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
 
   ],
   entryComponents: [SignupComponent],

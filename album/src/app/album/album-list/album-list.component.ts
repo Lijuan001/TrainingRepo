@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { AlbumService } from '../../shared/service/album.service';
+import { Album } from '../../shared/model/Album';
 
 @Component({
   selector: 'app-album-list',
@@ -6,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./album-list.component.scss']
 })
 export class AlbumListComponent implements OnInit {
-
+  @Input() albumList;
   constructor() { }
 
   ngOnInit() {

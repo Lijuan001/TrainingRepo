@@ -34,6 +34,13 @@ export class SignupComponent implements OnInit {
     onSubmit() {
       console.log('testing: ' + this.signupForm.get('fname'));
       this.isSubmitted = true;
+      if (this.signupForm.valid) {
+        this.activeModal.close('sign up close');
+      }
+    }
+
+    close() {
+      this.activeModal.close('Cross click');
     }
 
     get fname() {

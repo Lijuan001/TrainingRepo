@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from '../../../modal/signupModel/signup.component';
@@ -10,13 +10,14 @@ import { SignupComponent } from '../../../modal/signupModel/signup.component';
   styleUrls: ['./searchbar.component.scss']
 })
 export class SearchbarComponent implements OnInit {
-  searchField;
+  @Output() search = new EventEmitter<string>();
+  searchForm = {searchField: ''};
   signupForm;
   ngOnInit() {
   }
 
   onSubmit() {
-    console.log(this.searchField);
+    this.search.emit(this.searchForm.searchField);
   }
 
   constructor(private modalService: NgbModal) {}

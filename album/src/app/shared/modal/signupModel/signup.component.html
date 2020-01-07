@@ -1,13 +1,13 @@
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Sign Up</h4>
-    <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <button type="button" class="close" aria-label="Close" (click)="close()">
       <span aria-hidden="true">&times;</span>
     </button>
   </div>
 
   <div class="modal-body">
     <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <div *ngIf="signupForm.invalid && isSubmitted == true">
+      <div *ngIf="signupForm.invalid && isSubmitted == true" class="alert alert-danger">
         <div *ngIf="fname.errors && isSubmitted == true">
             <div *ngIf="fname.errors.required">First Name is required.</div>
             <div *ngIf="fname.errors.maxLength">First max length is 10.</div>
@@ -37,7 +37,7 @@
       <div class="form-group">
         <div class="input-group">
           <input id="fname" class="form-control" placeholder="First Name" 
-          [style.border]="fname.invalid && (fname.touched || fname.dirty) ? '1px solid red' : null"
+          [style.border]="fname.invalid && isSubmitted === true ? '1px solid red' : null"
           formControlName="fname" maxLength="10" required>
         </div>
       </div>
@@ -46,7 +46,7 @@
       <div class="form-group">
           <div class="input-group">
               <input id="lname" class="form-control" placeholder="Last Name"
-              [style.border]="lname.invalid && (lname.touched || lname.dirty) ? '1px solid red' : null"
+              [style.border]="lname.invalid && isSubmitted === true ? '1px solid red' : null"
               formControlName="lname" maxLength="10"  required>
           </div>
       </div>
@@ -56,7 +56,7 @@
    <div class="form-group">
     <div class="input-group">
       <input id="phone" type="text" class="form-control" 
-      [style.border]="phone.invalid && (phone.touched || phone.dirty) ? '1px solid red' : null"
+      [style.border]="phone.invalid && isSubmitted === true ? '1px solid red' : null"
       placeholder="Mobile No."
        formControlName="phone" required>
     </div>
@@ -66,7 +66,7 @@
   <div class="form-group">
       <div class="input-group">
         <input id="email" type="email" class="form-control" 
-        [style.border]="email.invalid && (email.touched || email.dirty) ? '1px solid red' : null"
+        [style.border]="email.invalid && isSubmitted === true ? '1px solid red' : null"
         placeholder="Email Address" formControlName="email" required>
       </div>
   </div>
@@ -78,7 +78,7 @@
           <div class="input-group">
             <input id="password" type="password" class="form-control" 
             placeholder="Password"  required
-            [style.border]="password.invalid && (password.touched || password.dirty) ? '1px solid red' : null"
+            [style.border]="password.invalid && isSubmitted === true ? '1px solid red' : null"
             formControlName="password">  
           </div>
         </div>
@@ -88,7 +88,7 @@
           <div class="input-group">
             <input id="confirmPassword" type="password" class="form-control"
             placeholder="Confirm Password" required
-            [style.border]="confirmPassword.invalid && (confirmPassword.touched || confirmPassword.dirty) ? '1px solid red' : null"
+            [style.border]="confirmPassword.invalid && isSubmitted === true ? '1px solid red' : null"
             formControlName="confirmPassword">
           </div>
         </div>
@@ -108,5 +108,5 @@
 </div>
 <div class="modal-footer">
   <button type="button" class="btn btn-primary" (click)="onSubmit()">Sign Up</button>
-  <button type="button" class="btn btn-success" (click)="onSignin()">Sign In</button>
+  <button type="button" class="btn btn-success" >Sign In</button>
 </div>
