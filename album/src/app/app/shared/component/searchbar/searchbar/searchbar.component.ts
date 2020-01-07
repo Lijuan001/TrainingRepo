@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from 'src/app/shared/modal/signupModel/signup.component';
+import { SignupComponent } from '../../../modal/signupModel/signup.component';
+
 
 @Component({
   selector: 'app-searchbar',

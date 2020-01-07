@@ -36,7 +36,7 @@
     <div class="signup-style">
       <div class="form-group">
         <div class="input-group">
-          <input class="form-control" placeholder="First Name" 
+          <input id="fname" class="form-control" placeholder="First Name" 
           [style.border]="fname.invalid && (fname.touched || fname.dirty) ? '1px solid red' : null"
           formControlName="fname" maxLength="10" required>
         </div>
