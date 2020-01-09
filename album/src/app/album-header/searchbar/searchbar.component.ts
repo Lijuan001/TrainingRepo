@@ -1,7 +1,9 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
-import { SignupComponent } from '../../../modal/signupModel/signup.component';
+import { SignupComponent } from '../../shared/modal/signupModel/signup.component';
+import { fromEvent } from 'rxjs';
+import { debounceTime, map } from 'rxjs/operators';
 
 
 @Component({
@@ -14,6 +16,15 @@ export class SearchbarComponent implements OnInit {
   searchForm = {searchField: ''};
   signupForm;
   ngOnInit() {
+  }
+
+  onKeyup(event) {
+    const source = fromEvent(event.target, 'keyup');
+    const example = source
+    .pipe(
+      map(res => res as any),
+      debounceTime(200))
+    .subscribe(data => console.log('data is: ' + data.target.value));
   }
 
   onSubmit() {
