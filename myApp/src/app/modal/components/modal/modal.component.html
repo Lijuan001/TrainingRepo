@@ -1,0 +1,8 @@
+<div class="backdrop" id="backdrop" (click)="hideModal($event)">
+  <div class="modal-container">
+    <div>
+      <button typed="button"  class="backdrop-close" (click)="hideModal($event)">Close</button>
+    </div>
+    <ng-content></ng-content>
+  </div>
+</div>

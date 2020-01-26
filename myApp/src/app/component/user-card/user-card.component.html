@@ -1,0 +1,20 @@
+<div class="user-card">
+    <div class="user-card-item">
+        <h2 class="card-title" (click)="openTodoPopup(userInfo.id)" appChangeColor>{{userInfo.name}}
+            <!-- <button (click)="openTodoPopup(userInfo.id)">{{userInfo.name}}</button> -->
+        </h2>
+    </div>
+    
+    <div class="user-card-item">
+        <p>{{userInfo.email}} </p>
+    </div>
+    
+    <hr/>
+    <div class="user-card-item additionalInfo">
+        <div>{{userInfo.address.city}}</div>
+        <div>{{userInfo.address.zipcode}}</div>
+    </div>
+    
+</div>
+
+

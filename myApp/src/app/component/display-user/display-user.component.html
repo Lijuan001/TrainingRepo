@@ -1,0 +1,13 @@
+<div class="display-users">
+    <app-user-card *ngFor="let userInfo of usersList" [userInfo]="userInfo" #usercard
+    (userId)="getTodoList($event)" (click)="usercard.testInteractionByVariable()">
+    </app-user-card>
+
+    <app-modal id="todo-popup" *ngIf ="todoList" >
+       <app-todo-modal [todoList]="todoList">
+        </app-todo-modal>  
+    </app-modal>
+    
+</div>
+
+
