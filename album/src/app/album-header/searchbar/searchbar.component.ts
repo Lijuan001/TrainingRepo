@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { SignupComponent } from '../../shared/modal/signupModel/signup.component';
 import { fromEvent } from 'rxjs';
-import { debounceTime, map } from 'rxjs/operators';
+import { debounceTime, map, switchMap } from 'rxjs/operators';
 
 
 @Component({

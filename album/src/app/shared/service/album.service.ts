@@ -13,10 +13,9 @@ export class AlbumService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAlbums(artistName: string): Observable<Album> {
+  getAlbums(artistName: string): Observable<Album[]> {
     return this.httpClient
-    .get(`${this.albumUrl}/search?term=${artistName}&media=music&attribute=artistTerm&limit=200&entity=album`)
-    .pipe(res => res as Observable<Album>);
+    .get<Album[]>(`${this.albumUrl}/search?term=${artistName}&media=music&attribute=artistTerm&limit=200&entity=album`);
   }
 
 }
