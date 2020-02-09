@@ -12,7 +12,7 @@ export class AlbumListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('ngOnInit');
+    console.log('ngOnInit merge testing');
   }
 
 }
