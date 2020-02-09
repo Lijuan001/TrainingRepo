@@ -12,6 +12,7 @@ export class AlbumListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('ngOnInit');
   }
 
 }
